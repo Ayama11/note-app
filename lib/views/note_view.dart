@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:noteapp/views/widgets/appbar.dart';
-import 'package:noteapp/views/widgets/listview_notes.dart';
+import 'package:noteapp/views/widgets/add_note_bottomsheet.dart';
 
 import 'widgets/body_note_view.dart';
-import 'widgets/curculer_icons.dart';
-import 'widgets/note_item.dart';
 
 class NoteView extends StatelessWidget {
   const NoteView({super.key});
@@ -14,7 +11,15 @@ class NoteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              context: context,
+              builder: (context) {
+                return const BottomSheetNote();
+              });
+        },
         child: const Icon(
           Iconsax.note_add,
           size: 28,
