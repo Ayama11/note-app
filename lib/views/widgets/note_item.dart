@@ -19,17 +19,20 @@ class NoteIteam extends StatelessWidget {
           ListTile(
             title: const Padding(
               padding: EdgeInsets.only(left: 8, top: 16, bottom: 16),
-              child: Text('Flutter Notes'),
+              child: Text('Flutter Notes',
+                  style: TextStyle(fontSize: 22, color: Colors.black)),
             ),
             subtitle: const Padding(
               padding: EdgeInsets.only(top: 8, left: 8, bottom: 16),
-              child: Text('Build you carer with tharwat'),
+              child: Text('Build your carer with tharwat',
+                  style: TextStyle(fontSize: 18)),
             ),
             trailing: IconButton(
                 onPressed: () {},
                 icon: const Icon(
                   Iconsax.trash,
                   size: 26,
+                  color: Colors.black,
                 )),
           ),
           Padding(
