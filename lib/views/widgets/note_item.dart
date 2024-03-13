@@ -33,10 +33,10 @@ class NoteIteam extends StatelessWidget {
                 )),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+            padding: const EdgeInsets.only(bottom: 16, right: 16),
             child: Text(
               'Mars, 13/2024',
-              style: TextStyle(color: Colors.black.withOpacity(0.5)),
+              style: TextStyle(color: Colors.black.withOpacity(0.3)),
             ),
           )
         ],

@@ -23,14 +23,17 @@ class NoteView extends StatelessWidget {
                 actions: [
                   CircularIcons(
                       backgrounColor: Colors.grey.withOpacity(.4),
-                      height: 30,
-                      width: 50,
+                      height: 20,
+                      width: 60,
                       size: 26,
                       color: Colors.white,
                       icon: Iconsax.search_normal,
                       onPreessed: () {})
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             const NoteIteam(),
           ],
