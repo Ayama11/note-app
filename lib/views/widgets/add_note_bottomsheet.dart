@@ -10,10 +10,12 @@ class BottomSheetNote extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 18),
       child: Column(
         children: [
-          SizedBox(
-            height: 32,
+          SizedBox(height: 32),
+          CustomTextField(
+            hint: 'Titel',
           ),
-          CustomTextField(),
+          SizedBox(height: 16),
+          CustomTextField(hint: 'content', maxline: 4),
         ],
       ),
     );
@@ -21,14 +23,16 @@ class BottomSheetNote extends StatelessWidget {
 }
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
-
+  const CustomTextField({super.key, required this.hint, this.maxline = 1});
+  final String hint;
+  final int maxline;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: maxline,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
-          hintText: 'Titel',
+          hintText: hint,
           border: buildBorder(),
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(kPrimaryColor)),
