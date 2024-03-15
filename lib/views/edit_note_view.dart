@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:noteapp/views/widgets/add_note_bottomsheet.dart';
 import 'package:noteapp/views/widgets/appbar.dart';
 
 import 'widgets/curculer_icons.dart';
