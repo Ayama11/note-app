@@ -19,8 +19,8 @@ class AppBarW extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
   final bool showBackArrow;
-  final backgroundColor;
-  final coloricon;
+  final Color backgroundColor;
+  final Color coloricon;
   @override
   Widget build(BuildContext context) {
     return Padding(
