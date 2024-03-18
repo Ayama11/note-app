@@ -29,14 +29,14 @@ class _FormInputState extends State<FormInput> {
           CustomTextField(
               hint: 'Titel',
               onSaved: (value) {
-                value = titel;
+                titel = value;
               }),
           const SizedBox(height: 24),
           CustomTextField(
               hint: 'Content',
               maxline: 4,
               onSaved: (value) {
-                value = content;
+                content = value;
               }),
           const SizedBox(height: 60),
           CustomButton(
@@ -55,6 +55,22 @@ class _FormInputState extends State<FormInput> {
               }
             },
           ),
+          // ElevatedButton(
+          //     onPressed: () {
+          //       if (formKey.currentState!.validate()) {
+          //         formKey.currentState!.save();
+          //         var noteModel = NoteModel(
+          //             titel: titel!,
+          //             content: content!,
+          //             date: DateTime.now().toString(),
+          //             color: Colors.grey.value);
+          //         BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+          //       } else {
+          //         autovalidateMode = AutovalidateMode.always;
+          //         setState(() {});
+          //       }
+          //     },
+          //     child: const Text('add')),
           const SizedBox(height: 44),
         ],
       ),
