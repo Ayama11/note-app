@@ -7,7 +7,6 @@ import 'package:noteapp/cubit/add_note/add_note_cubit.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/simple_bloc_observe.dart';
 import 'package:noteapp/views/note_view.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
