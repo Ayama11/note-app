@@ -29,9 +29,12 @@ class BottomSheetNote extends StatelessWidget {
         builder: (context, state) {
           return AbsorbPointer(
             absorbing: state is AddNoteLoding ? true : false,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18),
-              child: SingleChildScrollView(child: FormInput()),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 18,
+                  right: 18,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(child: FormInput()),
             ),
           );
         },
