@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noteapp/cubit/add_note/add_note_cubit.dart';
+import 'package:noteapp/cubit/add_note/add_note_state.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/views/widgets/custom_buttun.dart';
 import 'package:noteapp/views/widgets/custom_textfiled.dart';
@@ -39,20 +40,25 @@ class _FormInputState extends State<FormInput> {
                 content = value;
               }),
           const SizedBox(height: 60),
-          CustomButton(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var noteModel = NoteModel(
-                    titel: titel!,
-                    content: content!,
-                    date: DateTime.now().toString(),
-                    color: Colors.grey.value);
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoding: state is AddNoteLoding ? true : false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteModel = NoteModel(
+                        titel: titel!,
+                        content: content!,
+                        date: DateTime.now().toString(),
+                        color: Colors.grey.value);
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           // ElevatedButton(
