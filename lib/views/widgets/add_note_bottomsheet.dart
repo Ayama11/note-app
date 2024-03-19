@@ -7,6 +7,7 @@ import 'package:noteapp/views/widgets/custom_textfiled.dart';
 import 'package:noteapp/views/widgets/form_bottom_sheet.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:get/get.dart';
 
 class BottomSheetNote extends StatelessWidget {
   const BottomSheetNote({super.key});
@@ -18,7 +19,7 @@ class BottomSheetNote extends StatelessWidget {
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
           if (state is AddNoteSucsse) {
-            navigator!.pop(context);
+            Get.back();
           }
           if (state is AddNoteFailure) {
             debugPrint('erorr' "${state.errMesage}");
