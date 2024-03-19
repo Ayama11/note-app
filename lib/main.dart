@@ -23,15 +23,10 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddNoteCubit()),
-      ],
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: F,
-        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Charm'),
-        home: const NoteView(),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: F,
+      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Charm'),
+      home: const NoteView(),
     );
   }
 }
