@@ -35,19 +35,16 @@ class NoteIteam extends StatelessWidget {
                 child: Text(note.content, style: const TextStyle(fontSize: 18)),
               ),
               trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Iconsax.trash,
-                    size: 26,
-                    color: Colors.black,
-                  )),
+                  onPressed: () {
+                    note.delete();
+                  },
+                  icon:
+                      const Icon(Iconsax.trash, size: 26, color: Colors.black)),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 16, right: 16),
-              child: Text(
-                note.date,
-                style: TextStyle(color: Colors.black.withOpacity(0.3)),
-              ),
+              child: Text(note.date,
+                  style: TextStyle(color: Colors.black.withOpacity(0.3))),
             )
           ],
         ),
