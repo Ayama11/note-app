@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:noteapp/cubit/add_note/add_note_cubit.dart';
 import 'package:noteapp/cubit/add_note/add_note_state.dart';

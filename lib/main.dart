@@ -3,7 +3,7 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:noteapp/const.dart';
-import 'package:noteapp/cubit/add_note/add_note_cubit.dart';
+
 import 'package:noteapp/cubit/notes/notes_cubit.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/simple_bloc_observe.dart';
