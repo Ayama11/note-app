@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:noteapp/cubit/notes/notes_cubit.dart';
 
 import 'appbar.dart';
 import 'curculer_icons.dart';
 import 'listview_notes.dart';
 
-class BodyNoteView extends StatelessWidget {
+class BodyNoteView extends StatefulWidget {
   const BodyNoteView({
     super.key,
   });
+
+  @override
+  State<BodyNoteView> createState() => _BodyNoteViewState();
+}
+
+class _BodyNoteViewState extends State<BodyNoteView> {
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

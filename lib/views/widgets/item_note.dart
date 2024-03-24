@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/views/edit_note_view.dart';
 
 class NoteIteam extends StatelessWidget {
   const NoteIteam({
     super.key,
+    required this.note,
   });
-
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,21 +19,20 @@ class NoteIteam extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: Colors.blue,
+          color: Color(note.color),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Padding(
-                padding: EdgeInsets.only(left: 8, top: 16, bottom: 16),
-                child: Text('Flutter Notes',
-                    style: TextStyle(fontSize: 22, color: Colors.black)),
+              title: Padding(
+                padding: const EdgeInsets.only(left: 8, top: 16, bottom: 16),
+                child: Text(note.titel,
+                    style: const TextStyle(fontSize: 22, color: Colors.black)),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 8, left: 8, bottom: 16),
-                child: Text('Build your carer with tharwat',
-                    style: TextStyle(fontSize: 18)),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 8, left: 8, bottom: 16),
+                child: Text(note.content, style: const TextStyle(fontSize: 18)),
               ),
               trailing: IconButton(
                   onPressed: () {},
@@ -44,7 +45,7 @@ class NoteIteam extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 16, right: 16),
               child: Text(
-                'Mars, 13/2024',
+                note.date,
                 style: TextStyle(color: Colors.black.withOpacity(0.3)),
               ),
             )
