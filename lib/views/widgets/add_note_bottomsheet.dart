@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:noteapp/cubit/add_note/add_note_cubit.dart';
 import 'package:noteapp/cubit/add_note/add_note_state.dart';
+import 'package:noteapp/cubit/notes/notes_cubit.dart';
 import 'package:noteapp/views/widgets/custom_buttun.dart';
 import 'package:noteapp/views/widgets/custom_textfiled.dart';
 import 'package:noteapp/views/widgets/form_bottom_sheet.dart';
@@ -21,6 +22,7 @@ class BottomSheetNote extends StatelessWidget {
         listener: (context, state) {
           if (state is AddNoteSucsse) {
             Get.back();
+            BlocProvider.of<NotesCubit>(context).fetchAllNotes();
           }
           if (state is AddNoteFailure) {
             debugPrint('erorr' "${state.errMesage}");
