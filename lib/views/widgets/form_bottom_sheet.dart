@@ -6,6 +6,7 @@ import 'package:noteapp/cubit/add_note/add_note_state.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/views/widgets/custom_buttun.dart';
 import 'package:noteapp/views/widgets/custom_textfiled.dart';
+import 'package:noteapp/views/widgets/listview_color_item.dart';
 
 class FormInput extends StatefulWidget {
   const FormInput({
@@ -76,34 +77,5 @@ class _FormInputState extends State<FormInput> {
       autovalidateMode = AutovalidateMode.always;
       setState(() {});
     }
-  }
-}
-
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 35,
-      backgroundColor: Colors.amber,
-    );
-  }
-}
-
-class ListViewColor extends StatelessWidget {
-  const ListViewColor({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 35 * 2,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return const ColorItem();
-        },
-      ),
-    );
   }
 }
