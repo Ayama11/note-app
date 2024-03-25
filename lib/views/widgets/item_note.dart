@@ -42,6 +42,7 @@ class NoteIteam extends StatelessWidget {
                   onPressed: () {
                     note.delete();
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+                    Get.snackbar('Done', 'delet note');
                   },
                   icon:
                       const Icon(Iconsax.trash, size: 26, color: Colors.black)),

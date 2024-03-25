@@ -55,8 +55,10 @@ class _EditNoteBodyState extends State<EditNoteBody> {
                         widget.note.titel = titel ?? widget.note.titel;
                         widget.note.content = content ?? widget.note.content;
                         widget.note.save();
+
                         BlocProvider.of<NotesCubit>(context).fetchAllNotes();
                         Get.back();
+                        Get.snackbar('Done', 'edite note done');
                       })
                 ]),
             const SizedBox(height: 50),
