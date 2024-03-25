@@ -46,46 +46,33 @@ class _FormInputState extends State<FormInput> {
               return CustomButton(
                 isLoding: state is AddNoteLoding ? true : false,
                 onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-
-                    var currentDate = DateTime.now();
-                    var formatCurrentDate =
-                        DateFormat(DateFormat.YEAR_MONTH_DAY)
-                            .format(currentDate);
-                    var noteModel = NoteModel(
-                        titel: titel!,
-                        content: content!,
-                        date: formatCurrentDate,
-                        color: Colors.grey.value);
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
+                  validateInput(context);
                 },
               );
             },
           ),
-          // ElevatedButton(
-          //     onPressed: () {
-          //       if (formKey.currentState!.validate()) {
-          //         formKey.currentState!.save();
-          //         var noteModel = NoteModel(
-          //             titel: titel!,
-          //             content: content!,
-          //             date: DateTime.now().toString(),
-          //             color: Colors.grey.value);
-          //         BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-          //       } else {
-          //         autovalidateMode = AutovalidateMode.always;
-          //         setState(() {});
-          //       }
-          //     },
-          //     child: const Text('add')),
           const SizedBox(height: 44),
         ],
       ),
     );
+  }
+
+  void validateInput(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+
+      var currentDate = DateTime.now();
+      var formatCurrentDate =
+          DateFormat(DateFormat.YEAR_MONTH_DAY).format(currentDate);
+      var noteModel = NoteModel(
+          titel: titel!,
+          content: content!,
+          date: formatCurrentDate,
+          color: Colors.grey.value);
+      BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
   }
 }
