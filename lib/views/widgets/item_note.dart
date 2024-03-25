@@ -36,7 +36,9 @@ class NoteIteam extends StatelessWidget {
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 8, left: 8, bottom: 16),
-                child: Text(note.content, style: const TextStyle(fontSize: 18)),
+                child: Text(note.content,
+                    style: TextStyle(
+                        fontSize: 18, color: Colors.black.withOpacity(0.9))),
               ),
               trailing: IconButton(
                   onPressed: () {
@@ -50,7 +52,7 @@ class NoteIteam extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 16, right: 16),
               child: Text(note.date,
-                  style: TextStyle(color: Colors.black.withOpacity(0.3))),
+                  style: TextStyle(color: Colors.black.withOpacity(0.7))),
             )
           ],
         ),

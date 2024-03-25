@@ -43,7 +43,7 @@ class _FormInputState extends State<FormInput> {
               }),
           const SizedBox(height: 60),
           const ListViewColor(),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
@@ -54,7 +54,7 @@ class _FormInputState extends State<FormInput> {
               );
             },
           ),
-          const SizedBox(height: 44),
+          const SizedBox(height: 30),
         ],
       ),
     );
