@@ -16,7 +16,9 @@ class NoteIteam extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const EditNoteView());
+        Get.to(() => EditNoteView(
+              note: note,
+            ));
       },
       child: Container(
         decoration: BoxDecoration(
