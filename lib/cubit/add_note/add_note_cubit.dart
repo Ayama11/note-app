@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/physics.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:noteapp/const.dart';
 import 'package:noteapp/cubit/add_note/add_note_state.dart';

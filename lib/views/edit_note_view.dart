@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:noteapp/const.dart';
 import 'package:noteapp/cubit/notes/notes_cubit.dart';
 import 'package:noteapp/models/note_model.dart';
 import 'package:noteapp/views/widgets/appbar.dart';
+import 'package:noteapp/views/widgets/listview_color_item.dart';
 
 import 'widgets/curculer_icons.dart';
 import 'widgets/custom_textfiled.dart';
@@ -67,15 +69,61 @@ class _EditNoteBodyState extends State<EditNoteBody> {
                   titel = value;
                 },
                 hint: widget.note.titel),
-            const SizedBox(height: 24),
             CustomTextField(
                 onChanged: (value) {
                   content = value;
                 },
                 hint: widget.note.content,
-                maxline: 4)
+                maxline: 4),
+            const SizedBox(height: 24),
+            EditNoteListColor(note: widget.note)
           ],
         ),
+      ),
+    );
+  }
+}
+
+class EditNoteListColor extends StatefulWidget {
+  const EditNoteListColor({super.key, required this.note});
+
+  final NoteModel note;
+  @override
+  State<EditNoteListColor> createState() => _EditNoteListColorState();
+}
+
+class _EditNoteListColorState extends State<EditNoteListColor> {
+  late int currentIndex;
+
+  @override
+  void initState() {
+    currentIndex = kColors.indexOf(Color(widget.note.color));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 35 * 2,
+      child: ListView.builder(
+        itemCount: kColors.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: GestureDetector(
+              onTap: () {
+                currentIndex = index;
+                widget.note.color = kColors[index].value;
+                setState(() {});
+              },
+              child: ColorItem(
+                color: kColors[index],
+                isActive: currentIndex == index,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
